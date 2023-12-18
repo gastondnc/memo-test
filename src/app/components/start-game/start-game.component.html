@@ -1,0 +1,67 @@
+
+
+  <!-- Title Container -->
+  <div class="p-2">
+    <h1 class="text-center my-3 text-3xl text-blue-100">{{title}}</h1>
+  </div>
+  <!-- End Title Container -->
+
+  <!-- Container Inputs -->
+  <div class="flex justify-center gap-6">
+    <!-- Input Difficulty Container -->
+    <div class="flex-col-lg text-center">
+      <div>
+        <label class="block text-sm font-medium leading-6 text-blue-200 mb-2 text-center">
+          Define the difficulty
+        </label>
+      </div>
+      <div>
+        <select
+          [(ngModel)]="levelId"
+          name="selectLevel"
+          class="w-44 h-8 rounded-md"
+        >
+          <option *ngFor="let level of levels" [value]="level.id">
+            {{ level.level }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- End Difficulty Container -->
+
+    <!-- Input Category Container -->
+    <div class="flex-col-lg text-center">
+      <div>
+        <label class="block text-sm font-medium leading-6 text-blue-200 mb-2 text-center">
+          Choose a category
+        </label>
+      </div>
+      <div>
+        <select
+          [(ngModel)]="categoryId"
+          name="selectCategories"
+          class="w-44 h-8 rounded-md"
+        >
+          <option
+            *ngFor="let category of categories" [value]="category.id"
+          >
+            {{ category.category }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- End Input Category Container -->
+  </div>
+  <!-- End Container Inputs -->
+
+  <!-- Button Container -->
+  <div class="w-72 h-10 mx-auto my-32">
+    <button
+      (click)="startGame()"
+      class="block w-full drop-shadow-2xl rounded-full h-72 bg-blue-400 px-3.5 py-2.5 text-center text-3xl font-semibold text-blue-950 shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    >
+      {{ btnTitle }}
+    </button>
+  </div>
+  <!-- End Button Container -->
+

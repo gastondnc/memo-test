@@ -1,0 +1,41 @@
+<!-- Container Grid -->
+<ng-container *ngIf="endGame === false">
+<!-- Container  Cart -->
+<div class="grid grid-cols-4 w-3/4 gap-3 mx-auto p-4">
+  <div class="" *ngFor="let tile of tiles">
+    <div
+      [ngClass]="[tile.isVisible ? 'visible' : 'invisible', tile.isClicked ? 'bg-white' : 'bg-orange-600']"
+      (click)="onSelect(tile)"
+      class= " p-2 h-32 flex items-center justify-center rounded-md"
+    >
+      <img
+        *ngIf="tile.isClicked === true"
+        class="w-24 h-24"
+        [src]="tile.img"
+        alt="img-svg"
+      />
+    </div>
+  </div>
+</div>
+<!-- End Conteines Cart -->
+</ng-container>
+<!-- End Contianer Grid -->
+
+<!-- Reset Modal -->
+<ng-container *ngIf="endGame === true">
+  <result-game
+    [title]="endGameTitle"
+    (on-reset)="resetGame()"
+  >
+  </result-game>
+  <div class="flex justify-center text-red-400">
+    <a routerLink="/">Select new level or category</a>
+  </div>
+</ng-container>
+<!-- End Reset Modal -->
+
+<!-- Container Timer -->
+<div class="mx-auto mb-4">
+  <counter #counter (on-timer)="endTime()"></counter>
+</div>
+<!-- End Contaniner Timer -->
