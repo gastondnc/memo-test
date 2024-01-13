@@ -12,7 +12,6 @@ export class ResultGameComponent {
   constructor(){}
 
   resetGame(){
-    console.log('Desde reset')
     this.onResetEmitter.emit(true)
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AppComponent } from 'src/app/app.component';
+// Imports de entorno de desarrollo //
 import { CATEGORIES } from 'src/app/mocks/categories.mock';
 import { CONFIG_LEVELS } from 'src/app/mocks/config-level.mock';
 import { Category, Level } from 'src/app/models/level.model';

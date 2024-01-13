@@ -56,14 +56,12 @@ export class GridMemoComponent implements OnInit, AfterViewInit {
   }
 
   shuffle(arrToPush: Tile[]) {
-    console.log(this.level)
     const temp: Tile[] = [...this.originalTiles]
     this.originalTiles.forEach(item => {
       const ramdomIndex: number = Math.floor(Math.random() * temp.length)
       const elements: Tile[] =  temp.splice(ramdomIndex, 1)
       arrToPush.push({...elements[0]})
     })
-    console.log(arrToPush)
   }
 
   addTiles() {
@@ -71,7 +69,6 @@ export class GridMemoComponent implements OnInit, AfterViewInit {
       this.tiles.push(this.tilesA[idx])
       this.tiles.push(this.tilesB[idx])
     })
-    console.log(this.tiles)
   }
 
   onSelect(tileClicked: Tile) {
@@ -83,7 +80,6 @@ export class GridMemoComponent implements OnInit, AfterViewInit {
     const clickedTiles = this.clickedTiles
     if(this.clickedTiles.length === 2) {
       if(this.clickedTiles[0].id === this.clickedTiles[1].id){
-        console.log('ñoño ganaste')
         setTimeout( () => {
           clickedTiles.forEach(item => {
           item.isVisible = false
@@ -92,7 +88,6 @@ export class GridMemoComponent implements OnInit, AfterViewInit {
         if(isFinish === true){
           this.endGameTitle = 'Winner'
           this.showModal(true)
-          // this.resetGame()
         }
       }, 500 )
 
@@ -102,13 +97,11 @@ export class GridMemoComponent implements OnInit, AfterViewInit {
               item.isClicked = false
             })
           }, 500 )
-          console.log('ñoño perdiste')
         }
         this.clickedTiles = []
       }else{
 
       }
-      console.log(this.clickedTiles)
   }
 
   resetGame() {
